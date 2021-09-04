@@ -99,9 +99,9 @@
 		9D11A2BA26E24994003CD05B /* Memorize */ = {
 			isa = PBXGroup;
 			children = (
+				9D11A2BB26E24994003CD05B /* MemorizeApp.swift */,
 				9D11A2EA26E414E2003CD05B /* EmojiMemoryGame.swift */,
 				9D11A2EB26E414E2003CD05B /* MemoryGame.swift */,
-				9D11A2BB26E24994003CD05B /* MemorizeApp.swift */,
 				9D11A2BD26E24994003CD05B /* ContentView.swift */,
 				9D11A2BF26E24994003CD05B /* Assets.xcassets */,
 				9D11A2C426E24994003CD05B /* Info.plist */,
