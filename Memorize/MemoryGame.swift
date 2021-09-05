@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Model
+
 struct MemoryGame<CardContent> where CardContent: Equatable {
     private(set) var cards: [Card]
 
