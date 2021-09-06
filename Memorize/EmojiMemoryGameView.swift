@@ -11,15 +11,19 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var game: EmojiMemoryGame
 
     var body: some View {
-        AspectVGrid(items: game.cards, aspectRatio: 2 / 3, content: { card in
-            CardView(card)
-                .padding(2)
-                .onTapGesture {
-                    game.choose(card)
-                }
-        })
-            .foregroundColor(.red)
-            .padding(.all)
+        AspectVGrid(items: game.cards, aspectRatio: 2 / 3) { card in
+            if card.isMatched && !card.isFaceUp {
+                Rectangle().opacity(0)
+            } else {
+                CardView(card)
+                    .padding(2)
+                    .onTapGesture {
+                        game.choose(card)
+                    }
+            }
+        }
+        .foregroundColor(.red)
+        .padding(.all)
     }
 }
 
