@@ -17,7 +17,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         set { cards.indices.forEach { cards[$0].isFaceUp = $0 == newValue }}
     }
 
-    // TODO: modify to allow iding the last 2 cards when matched
+    // TODO: modify to allow hiding the last 2 cards when matched
     // TODO: add shuffle / restart
     mutating func choose(_ card: Card) {
         if let index = cards.firstIndex(where: { $0.id == card.id }),
