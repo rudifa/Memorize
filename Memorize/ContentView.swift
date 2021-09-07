@@ -7,23 +7,66 @@
 
 import SwiftUI
 
+enum Theme {
+    case vehicles
+    case zodiac
+    case euFlags
+
+    struct Data {
+        let buttonImageName: String
+        let buttonText: String
+        let emojis: [String]
+    }
+
+    static func data(_ selected: Theme) -> Data {
+        switch selected {
+        case .vehicles:
+            return Data(buttonImageName: "car",
+                        buttonText: "Vehicles",
+                        emojis: ["🚗", "🚕", "🚙", "🚌", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻", "🚚", "🚛", "🚜", "🦽", "🚲", "🛵", "🏍", "🛺", "🚞", "🚝", "✈️"])
+
+        case .zodiac:
+            return Data(buttonImageName: "wand.and.stars",
+                        buttonText: "Zodiac",
+                        emojis: ["♈️", "♉️", "♊️", "♋️", "♌️", "♍️", "♎️", "♏️", "♐️", "♑️", "♒️", "♓️"])
+
+        case .euFlags:
+            return Data(buttonImageName: "flag",
+                        buttonText: "EU flags",
+                        emojis: ["🇦🇹", "🇧🇪", "🇧🇬", "🇭🇷", "🇨🇾", "🇨🇿", "🇩🇰", "🇪🇪", "🇫🇮", "🇫🇷", "🇩🇪", "🇬🇷", "🇭🇺", "🇮🇪", "🇮🇹", "🇱🇻", "🇱🇹", "🇱🇺", "🇲🇹", "🇳🇱", "🇵🇱", "🇵🇹", "🇷🇴", "🇸🇰", "🇸🇮", "🇪🇸", "🇸🇪"])
+
+            /* European Union Countries
+                   Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic,
+                   Denmark, Estonia, Finland, France, Germany, Greece,
+                   Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg,
+                   Malta, Netherlands, Poland, Portugal, Romania, Slovakia,
+                   Slovenia, Spain, Sweden
+             */
+        }
+    }
+}
+
 struct ContentView: View {
-    var emojis = ["🚗", "🚕", "🚙", "🚌", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻", "🚚", "🚛", "🚜", "🦽", "🚲", "🛵", "🏍", "🛺", "🚞", "🚝", "🚜", "🚞", "✈️"]
-    @State var emojiCount = 6
+    @State var selected = Theme.vehicles
+
     var body: some View {
         VStack {
+            Text("Memorize!").font(.largeTitle)
             ScrollView {
+                let emojis = Theme.data(selected).emojis.shuffled()
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {
-                    ForEach(emojis[0 ..< emojiCount], id: \.self) { emoji in
+                    ForEach(emojis, id: \.self) { emoji in
                         CardView(content: emoji).aspectRatio(2 / 3, contentMode: .fit)
                     }
                 }
             }
             .foregroundColor(.red)
             HStack {
-                add
+                themeButton(for: .vehicles)
                 Spacer()
-                remove
+                themeButton(for: .zodiac)
+                Spacer()
+                themeButton(for: .euFlags)
             }
             .font(.largeTitle)
             .padding([.top, .leading, .trailing])
@@ -31,23 +74,15 @@ struct ContentView: View {
         .padding(.all)
     }
 
-    var add: some View {
-        Button {
-            if emojiCount > 1 {
-                emojiCount -= 1
-            }
-        } label: {
-            Image(systemName: "minus.circle")
-        }
-    }
-
-    var remove: some View {
-        Button {
-            if emojiCount < emojis.count {
-                emojiCount += 1
-            }
-        } label: {
-            Image(systemName: "plus.circle")
+    private func themeButton(for theme: Theme) -> some View {
+        VStack {
+            let data = Theme.data(theme)
+            Button(action: { selected = theme }, label: {
+                VStack {
+                    Image(systemName: data.buttonImageName)
+                    Text(data.buttonText).font(.headline)
+                }
+            })
         }
     }
 }
