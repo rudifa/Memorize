@@ -38,18 +38,23 @@ struct CardView: View {
         GeometryReader { geometry in
             ZStack {
                 Pie(startAngle: Angle(degrees: -90), endAngle: Angle(degrees: 110 - 90)).padding(5).opacity(0.4)
-                Text(card.content).font(font(of: geometry.size))
+                Text(card.content)
+                    .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0))
+                    .animation(.easeInOut(duration: 2))
+                    .font(Font.system(size: Const.fontSize))
+                    .scaleEffect(scale(thatFits: geometry.size))
             }
             .cardify(isFaceUp: card.isFaceUp)
         }
     }
 
-    private func font(of size: CGSize) -> Font {
-        Font.system(size: min(size.width, size.height) * Const.fontScale)
+    private func scale(thatFits size: CGSize) -> CGFloat {
+        min(size.width, size.height) / (Const.fontSize / Const.fontScale)
     }
 
     private enum Const {
         static let fontScale: CGFloat = 0.8
+        static let fontSize: CGFloat = 32
     }
 }
 
