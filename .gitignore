@@ -4,3 +4,5 @@
 *.xcbkptlist
 *xcuserdata
 *xcbaselines
+docs/
+

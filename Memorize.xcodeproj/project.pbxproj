@@ -15,6 +15,7 @@
 		9D11A2D926E24995003CD05B /* MemorizeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D11A2D826E24995003CD05B /* MemorizeUITests.swift */; };
 		9D11A2EC26E414E2003CD05B /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D11A2EA26E414E2003CD05B /* EmojiMemoryGame.swift */; };
 		9D11A2ED26E414E2003CD05B /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D11A2EB26E414E2003CD05B /* MemoryGame.swift */; };
+		9D1BBF6F26EA9471003153E4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9D1BBF6E26EA9471003153E4 /* README.md */; };
 		9D5BA1E526E79D1D00C2F535 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5BA1E426E79D1D00C2F535 /* Cardify.swift */; };
 		9D648D8226E661FF0067F602 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D648D8126E661FF0067F602 /* AspectVGrid.swift */; };
 		9D648D8426E6951B0067F602 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D648D8326E6951B0067F602 /* Pie.swift */; };
@@ -52,6 +53,7 @@
 		9D11A2DA26E24995003CD05B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D11A2EA26E414E2003CD05B /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
 		9D11A2EB26E414E2003CD05B /* MemoryGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
+		9D1BBF6E26EA9471003153E4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9D5BA1E426E79D1D00C2F535 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 		9D648D8126E661FF0067F602 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		9D648D8326E6951B0067F602 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		9D11A2AF26E24994003CD05B = {
 			isa = PBXGroup;
 			children = (
+				9D1BBF6E26EA9471003153E4 /* README.md */,
 				9D11A2BA26E24994003CD05B /* Memorize */,
 				9D11A2CC26E24995003CD05B /* MemorizeTests */,
 				9D11A2D726E24995003CD05B /* MemorizeUITests */,
@@ -248,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D1BBF6F26EA9471003153E4 /* README.md in Resources */,
 				9D11A2C326E24994003CD05B /* Preview Assets.xcassets in Resources */,
 				9D11A2C026E24994003CD05B /* Assets.xcassets in Resources */,
 			);
