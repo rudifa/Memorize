@@ -19,6 +19,7 @@ enum Theme: Int, CaseIterable {
         let name: String
         let emojis: [String]
         let minCountToUse: Int
+        let cardColor: Color
     }
 
     static func data(_ selected: Theme) -> Data {
@@ -27,19 +28,22 @@ enum Theme: Int, CaseIterable {
             return Data(buttonImageName: "car",
                         name: "Vehicles",
                         emojis: ["🚗", "🚕", "🚙", "🚌", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻", "🚚", "🚛", "🚜", "🦽", "🚲", "🛵", "🏍", "🛺", "🚞", "🚝", "✈️"],
-                        minCountToUse: 6)
+                        minCountToUse: 6,
+                        cardColor: .red)
 
         case .zodiac:
             return Data(buttonImageName: "wand.and.stars",
                         name: "Zodiac",
                         emojis: ["♈️", "♉️", "♊️", "♋️", "♌️", "♍️", "♎️", "♏️", "♐️", "♑️", "♒️", "♓️"],
-                        minCountToUse: 10)
+                        minCountToUse: 10,
+                        cardColor: .purple)
 
         case .euFlags:
             return Data(buttonImageName: "flag",
                         name: "EU flags",
                         emojis: ["🇦🇹", "🇧🇪", "🇧🇬", "🇭🇷", "🇨🇾", "🇨🇿", "🇩🇰", "🇪🇪", "🇫🇮", "🇫🇷", "🇩🇪", "🇬🇷", "🇭🇺", "🇮🇪", "🇮🇹", "🇱🇻", "🇱🇹", "🇱🇺", "🇲🇹", "🇳🇱", "🇵🇱", "🇵🇹", "🇷🇴", "🇸🇰", "🇸🇮", "🇪🇸", "🇸🇪"],
-                        minCountToUse: 8)
+                        minCountToUse: 8,
+                        cardColor: .blue)
 
             /* European Union Countries
                    Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic,
@@ -68,6 +72,7 @@ enum Theme: Int, CaseIterable {
 class EmojiMemoryGame: ObservableObject {
     @Published private(set) var model: MemoryGame<String>!
     @Published private(set) var title: String!
+    @Published private(set) var cardColor: Color!
 
     var cards: [MemoryGame<String>.Card] {
         return model.cards
@@ -79,6 +84,7 @@ class EmojiMemoryGame: ObservableObject {
             emojis[pairIndex]
         }
         title = Theme.data(theme).name
+        cardColor = Theme.data(theme).cardColor
     }
 
     init() {

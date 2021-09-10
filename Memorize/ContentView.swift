@@ -23,7 +23,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .foregroundColor(.red)
+            .foregroundColor(viewModel.cardColor)
             Spacer()
             Button {
                 viewModel.newGame()
