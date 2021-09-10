@@ -49,6 +49,7 @@
 		9D11A2DA26E24995003CD05B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D11A2EA26E414E2003CD05B /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
 		9D11A2EB26E414E2003CD05B /* MemoryGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
+		9D9CC0FC26EBF940004278D4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +80,7 @@
 		9D11A2AF26E24994003CD05B = {
 			isa = PBXGroup;
 			children = (
+				9D9CC0FC26EBF940004278D4 /* README.md */,
 				9D11A2BA26E24994003CD05B /* Memorize */,
 				9D11A2CC26E24995003CD05B /* MemorizeTests */,
 				9D11A2D726E24995003CD05B /* MemorizeUITests */,
