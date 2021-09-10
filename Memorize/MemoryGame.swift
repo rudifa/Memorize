@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Model
+
 struct MemoryGame<CardContent> where CardContent: Equatable {
     private(set) var cards: [Card]
 
@@ -44,11 +46,12 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
 
     init(numberOfPairsOfCards: Int, createCardContent: (Int) -> CardContent) {
-        cards = [Card]()
+        var cards = [Card]()
         for pairIndex in 0 ..< numberOfPairsOfCards {
             let content = createCardContent(pairIndex)
             cards.append(Card(content: content, id: pairIndex * 2))
             cards.append(Card(content: content, id: pairIndex * 2 + 1))
         }
+        self.cards = cards.shuffled()
     }
 }
