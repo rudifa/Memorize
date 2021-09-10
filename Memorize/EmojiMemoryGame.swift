@@ -46,15 +46,15 @@ enum Theme: Int, CaseIterable {
                         minCountToUse: 8,
                         cardColor: .blue)
 
-            /* European Union Countries
-                   Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic,
-                   Denmark, Estonia, Finland, France, Germany, Greece,
-                   Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg,
-                   Malta, Netherlands, Poland, Portugal, Romania, Slovakia
-                   Slovenia, Spain, Sweden
-             */
+        /* European Union Countries
+               Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic,
+               Denmark, Estonia, Finland, France, Germany, Greece,
+               Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg,
+               Malta, Netherlands, Poland, Portugal, Romania, Slovakia
+               Slovenia, Spain, Sweden
+         */
         case .chess:
-            return Data(buttonImageName: "checkerboard.rectangle", name: "Chess", emojis: ["♔", "♕", "♖", "♗", "♘", "♙", "♚", "♛", "♜", "♝",  "♞", "♟"], minCountToUse: 5, cardColor: .gray)
+            return Data(buttonImageName: "checkerboard.rectangle", name: "Chess", emojis: ["♔", "♕", "♖", "♗", "♘", "♙", "♚", "♛", "♜", "♝", "♞", "♟"], minCountToUse: 5, cardColor: .gray)
         }
     }
 
@@ -76,6 +76,8 @@ class EmojiMemoryGame: ObservableObject {
     @Published private(set) var model: MemoryGame<String>!
     @Published private(set) var title: String!
     @Published private(set) var cardColor: Color!
+    @Published private(set) var score: Int!
+    @Published private(set) var maxScore: Int!
 
     var cards: [MemoryGame<String>.Card] {
         return model.cards
@@ -88,6 +90,8 @@ class EmojiMemoryGame: ObservableObject {
         }
         title = Theme.data(theme).name
         cardColor = Theme.data(theme).cardColor
+        score = model.score
+        maxScore = cards.count
     }
 
     init() {
@@ -98,6 +102,7 @@ class EmojiMemoryGame: ObservableObject {
 
     func choose(_ card: MemoryGame<String>.Card) {
         model.choose(card)
+        score = model.score
     }
 
     func newGame() {

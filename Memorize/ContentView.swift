@@ -25,10 +25,14 @@ struct ContentView: View {
             }
             .foregroundColor(viewModel.cardColor)
             Spacer()
-            Button {
-                viewModel.newGame()
-            } label: {
-                Text("New Game")
+            HStack {
+                Text("Score: \(viewModel.score) / \(viewModel.maxScore)")
+                Spacer()
+                Button {
+                    viewModel.newGame()
+                } label: {
+                    Text("New Game")
+                }
             }
         }
         .foregroundColor(.black)
