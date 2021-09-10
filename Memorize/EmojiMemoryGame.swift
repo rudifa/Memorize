@@ -13,6 +13,7 @@ enum Theme: Int, CaseIterable {
     case vehicles
     case zodiac
     case euFlags
+    case chess
 
     struct Data {
         let buttonImageName: String
@@ -49,9 +50,11 @@ enum Theme: Int, CaseIterable {
                    Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic,
                    Denmark, Estonia, Finland, France, Germany, Greece,
                    Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg,
-                   Malta, Netherlands, Poland, Portugal, Romania, Slovakia,
+                   Malta, Netherlands, Poland, Portugal, Romania, Slovakia
                    Slovenia, Spain, Sweden
              */
+        case .chess:
+            return Data(buttonImageName: "checkerboard.rectangle", name: "Chess", emojis: ["♔", "♕", "♖", "♗", "♘", "♙", "♚", "♛", "♜", "♝",  "♞", "♟"], minCountToUse: 5, cardColor: .gray)
         }
     }
 
